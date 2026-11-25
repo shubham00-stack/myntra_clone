@@ -1,74 +1,86 @@
-# Myntra Clone - Web Development College Assignment
+# Myntra Clone – Fashion E-Commerce Website
 
-A simple, responsive, and fully interactive **Myntra Clone** built with **HTML5, CSS3, and JavaScript** (with an optional zero-dependency **Java** HTTP Server).
+A professional, visually attractive, and responsive **Myntra-inspired Fashion E-Commerce Website** built for a college assignment using pure **HTML5, CSS3 (Flexbox & Grid), and Vanilla JavaScript**.
 
 ---
 
 ## 📁 Project Structure
 
 ```
-c:\myntra\
-├── index.html          # Main Store page (Navbar, Banners, Products, Modals)
-├── login.html          # Authentic Myntra Login & Signup page (OTP simulation)
-├── style.css           # Pure CSS3 stylesheet (Myntra theme, Flexbox/Grid, Responsive)
-├── script.js           # Vanilla JavaScript (Cart, Wishlist, Search, Filters, Modals)
-├── MyntraServer.java   # Optional Java HTTP Server (Zero dependencies, pure Java SE)
-└── README.md           # Project report and presentation guide
+myntra/
+│
+├── index.html          # Main homepage with all sections
+├── login.html          # Authentication page (Phone + OTP simulation)
+├── css/
+│   └── style.css       # Complete CSS styling (Flexbox, Grid, Responsive)
+├── js/
+│   └── script.js       # Vanilla JavaScript (Wishlist, mobile menu, search)
+├── images/             # Local images folder
+│   ├── logo.png
+│   ├── banner.jpg
+│   ├── category/
+│   └── products/
+└── README.md           # Project documentation and presentation guide
 ```
 
 ---
 
-## 🚀 How to Run the Project
+## 🚀 How to Run the Website
 
-### Method 1: Instant Direct Launch (Recommended & Easiest)
-You do **not** need to install Node, npm, or any frameworks!
-1. Open the folder: `c:\myntra`
-2. **Double-click on `index.html`**
-3. It will immediately open and run in Google Chrome, Microsoft Edge, or Mozilla Firefox!
+1. Navigate to the project directory: `c:\Users\shubh\OneDrive\Desktop\myntra`
+2. **Double-click on `index.html`** to open it directly in Google Chrome, Microsoft Edge, or any modern web browser.
+3. No build tools, Node.js, or external servers are required.
 
 ---
 
-### Method 2: Running via Java Server (`MyntraServer.java`)
-If your teacher specifically asked to run or serve the project using **Java**:
-1. Open Command Prompt or Terminal in `c:\myntra`.
-2. Compile and run the Java server:
-   ```cmd
-   javac MyntraServer.java
-   java MyntraServer
-   ```
-3. Open your browser and navigate to:
-   ```
-   http://localhost:8080
-   ```
+## 🌟 Sections & Features
+
+1. **Header & Sticky Navigation Bar**:
+   - Myntra SVG brand logo.
+   - Navigation links: `MEN`, `WOMEN`, `KIDS`, `HOME & LIVING`, `BEAUTY`, `STUDIO` (with "NEW" badge).
+   - Underline hover animations.
+   - Search input bar with search icon.
+   - User action items: `Profile`, `Wishlist`, and `Bag`.
+   - Mobile hamburger menu toggle.
+
+2. **Hero Promotional Section**:
+   - High-impact fashion festival banner.
+   - "BIG FASHION FESTIVAL" headline, subtitle, offer highlight (`50% - 80% OFF`), and "SHOP NOW" CTA.
+
+3. **Deal Guarantees Strip**:
+   - Highlights 100% Original guarantee, Free Delivery, and 14-day easy returns.
+
+4. **Shop by Category (6 Categories)**:
+   - Men's Clothing, Women's Clothing, Kids' Fashion, Footwear, Accessories, Beauty Products.
+   - 6-column CSS Grid on desktop, adjusting to 3 columns on tablet and 2 columns on mobile.
+   - Image zoom and card elevation on hover.
+
+5. **Trending Now Product Grid (12 Products)**:
+   - Men's T-shirts (Roadster, HRX)
+   - Shirts (Highlander, Allen Solly)
+   - Women's dresses & kurtas (Mango, Anouk)
+   - Jeans (Levi's 511)
+   - Footwear (Nike Revolution 6, Puma Smashic)
+   - Accessories (Fossil Chronograph Watch, Lavie Satchel Handbag)
+   - Outerwear (Wildcraft Windproof Jacket)
+   - Each card features: Product image, interactive wishlist heart toggle, star rating & count badge, brand name, product title, selling price, original MRP, and discount percentage.
+
+6. **Special Offer Banner**:
+   - "END OF SEASON SALE - UP TO 70% OFF" with "EXPLORE NOW" CTA and vibrant brand gradient.
+
+7. **Comprehensive Footer**:
+   - Multi-column layout for Online Shopping, Customer Policies, and Useful Links.
+   - App download badges (Google Play & App Store).
+   - Social media icons (Facebook, Twitter, Instagram, YouTube).
+   - Guarantee highlights and copyright disclaimer.
 
 ---
 
-## ✨ Features Built
+## 💡 Technical Concepts Used
 
-| Feature | Description |
-|---|---|
-| **Myntra Navigation Bar** | Authentic SVG Logo, Men/Women/Kids/Footwear/Beauty category tabs, Search bar, and Profile/Wishlist/Bag counter badges. |
-| **Real-Time Search** | Type keywords like *"shirt"*, *"shoes"*, *"puma"*, *"dress"* in the search bar to filter products instantly. |
-| **Multi-Criteria Filter Sidebar** | Filter by Gender (Men, Women, Kids), Price (Under ₹500, ₹500-₹1000, Above ₹1000), and Discounts (30%+, 50%+, 60%+). |
-| **Dynamic Sorting** | Sort products by *Price: Low to High*, *Price: High to Low*, or *Customer Rating*. |
-| **Interactive Shopping Bag** | View added items, change quantities (+ / -), see MRP breakdown, and apply promo code **`MYNTRA200`** for an instant ₹200 discount! |
-| **Wishlist Drawer** | Tap the heart icon on any card to save it; view wishlist and move items to bag in one click. |
-| **Product Detail Modal (PDP)** | Click on any product to view high-resolution imagery, full specifications, ratings, and size selector. |
-| **Order Confirmation** | Clicking "PLACE ORDER" generates a dynamic Myntra Order ID with a celebration screen and clears the bag. |
-| **Login & Signup (`login.html`)** | Authentic Myntra phone number entry, OTP verification simulation (`1234`), and name setup. Stored in `localStorage`. |
-
----
-
-## 🎓 Questions Your Teacher Might Ask (Viva Preparation)
-
-### Q1: "What is the difference between Java and JavaScript?"
-> **Answer**: *"Java is a statically-typed, object-oriented, compiled programming language primarily used for backend servers, Android apps, and enterprise software. JavaScript is a lightweight, dynamically-typed scripting language executed by web browsers to make HTML/CSS web pages interactive."*
-
-### Q2: "How does the Cart and Wishlist retain items if you refresh the page?"
-> **Answer**: *"I used the browser's native `localStorage` API in `script.js`. When a user adds an item, it is converted into a JSON string via `JSON.stringify()` and saved in `localStorage`. When the page reloads, `JSON.parse()` reads the saved data so items are never lost."*
-
-### Q3: "Did you use any external CSS framework like Bootstrap or Tailwind?"
-> **Answer**: *"No, this project uses 100% pure, custom CSS3 in `style.css`. It uses modern CSS Flexbox and CSS Grid layouts with custom media queries to make it fully responsive on mobile, tablet, and desktop screens."*
-
-### Q4: "How does the live search and filtering work?"
-> **Answer**: *"The products are stored in a JavaScript array of objects in `script.js`. Whenever the user types in the search box or checks a filter checkbox, the `applyFilters()` function executes `Array.prototype.filter()` against gender, price range, discount, and text keywords, then re-renders the grid using `renderProducts()`."*
+- **HTML5 Semantic Elements**: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`.
+- **CSS3 Flexbox**: Sticky header, navigation item alignment, deal strip, pricing rows, footer guarantee row.
+- **CSS3 Grid**: 6-column category layout, 4-column product grid, 4-column footer layout.
+- **CSS Positioning**: Sticky navbar (`position: sticky`), absolute positioning for wishlist hearts and rating badges.
+- **Responsive Media Queries**: Breakpoints at `1024px`, `768px`, and `480px` for mobile, tablet, and desktop views.
+- **JavaScript DOM Interactions**: Wishlist toggling (filling heart icon), mobile menu slide-out toggle, and smooth scrolling.
