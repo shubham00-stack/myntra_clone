@@ -65,9 +65,27 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   gap: 20px;
 }
 
-.logo { flex-shrink: 0; }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
 
-.logo-svg { display: block; }
+.logo-icon {
+  display: block;
+  width: 42px;
+  height: 31px;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--dark);
+  text-transform: lowercase;
+}
 
 /* Navigation */
 .main-nav { margin-left: 16px; }
