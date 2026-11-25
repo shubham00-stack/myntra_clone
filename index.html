@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Shopping for Women, Men, Kids Fashion & Lifestyle - Myntra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-banner">
+    <p>🎉 FLAT ₹200 OFF on your first order! Use Coupon Code: <span class="coupon-tag">MYNTRA200</span></p>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <svg viewBox="0 0 512 376" width="46" height="34">
+          <path fill="#ff3f6c" d="M226.7 93.6c-17.5-31.5-49.3-51.5-84.8-51.5-53.7 0-97.3 43.6-97.3 97.3 0 29.5 13.1 55.9 33.9 73.8l82.8 147.4c7.3 13 21 21.1 35.9 21.1 14.8 0 28.5-8.1 35.8-21l83.6-147.7c20.8-17.9 34-44.4 34-73.6 0-53.7-43.6-97.3-97.3-97.3-35.4 0-67.2 20-84.6 51.5h-2z"/>
+          <path fill="#f25511" d="M196.4 147.3c15.2 27.2 43.8 45.4 76.5 45.4 32.7 0 61.3-18.2 76.5-45.4l50.6 89.5c6.5 11.5 18.5 18.7 31.7 18.7 13.1 0 25.2-7.1 31.7-18.7l44-77.9c4.2-7.5 4.2-16.7 0-24.2l-44-77.9c-6.5-11.5-18.6-18.7-31.7-18.7-13.2 0-25.2 7.2-31.7 18.7L349.5 98c-15.2-27.2-43.8-45.4-76.5-45.4-32.7 0-61.3 18.2-76.5 45.4L146 8.9C139.5-2.6 127.4-9.8 114.2-9.8c-13.1 0-25.2 7.2-31.7 18.7L38.5 86.8c-4.2 7.5-4.2 16.7 0 24.2l44 77.9c6.5 11.5 18.6 18.7 31.7 18.7 13.2 0 25.2-7.2 31.7-18.7l50.5-89.6z" opacity="0.9"/>
+          <circle fill="#ffbf00" cx="256" cy="112" r="48" opacity="0.85"/>
+        </svg>
+        <span class="logo-text">myntra</span>
+      </a>
+
+      <!-- Category Links with Mega Menus -->
+      <nav class="nav-links">
+        <div class="nav-item">
+          <a href="#" onclick="filterByCategory('Men'); return false;">MEN</a>
+        </div>
+        <div class="nav-item">
+          <a href="#" onclick="filterByCategory('Women'); return false;">WOMEN</a>
+        </div>
+        <div class="nav-item">
+          <a href="#" onclick="filterByCategory('Kids'); return false;">KIDS</a>
+        </div>
+        <div class="nav-item">
+          <a href="#" onclick="filterByCategory('Footwear'); return false;">FOOTWEAR</a>
+        </div>
+        <div class="nav-item">
+          <a href="#" onclick="filterByCategory('Beauty'); return false;">BEAUTY</a>
+        </div>
+      </nav>
+
+      <!-- Search Bar -->
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search for products, brands and more..." oninput="handleSearch()">
+      </div>
+
+      <!-- Action Buttons (Profile, Wishlist, Bag) -->
+      <div class="nav-actions">
+        <a href="login.html" class="action-btn" id="profileBtn">
+          <span class="icon">👤</span>
+          <span class="label" id="profileLabel">Profile</span>
+        </a>
+
+        <button class="action-btn" onclick="openWishlistModal()">
+          <span class="icon">🤍</span>
+          <span class="label">Wishlist</span>
+          <span class="badge" id="wishlistCount">0</span>
+        </button>
+
+        <button class="action-btn" onclick="openCartModal()">
+          <span class="icon">🛍️</span>
+          <span class="label">Bag</span>
+          <span class="badge" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner Carousel -->
+  <section class="hero-carousel">
+    <div class="carousel-slide" id="heroBanner">
+      <div class="banner-content">
+        <span class="banner-tag">BIG FASHION FESTIVAL</span>
+        <h1>50% - 80% OFF</h1>
+        <p>Top Brands | Free Shipping | Easy Returns</p>
+        <button class="shop-now-btn" onclick="scrollToProducts()">EXPLORE DEALS</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Category Pills -->
+  <div class="category-pills">
+    <button class="pill active" onclick="setCategoryFilter('all', this)">All Items</button>
+    <button class="pill" onclick="setCategoryFilter('Men', this)">Men's Fashion</button>
+    <button class="pill" onclick="setCategoryFilter('Women', this)">Women's Fashion</button>
+    <button class="pill" onclick="setCategoryFilter('Kids', this)">Kids Wear</button>
+    <button class="pill" onclick="setCategoryFilter('Footwear', this)">Footwear</button>
+    <button class="pill" onclick="setCategoryFilter('Beauty', this)">Beauty</button>
+  </div>
+
+  <!-- Main Store Layout -->
+  <main class="main-container" id="productsSection">
+    
+    <!-- Sidebar Filters -->
+    <aside class="sidebar-filters">
+      <div class="filter-header">
+        <h3>FILTERS</h3>
+        <button class="clear-filters-btn" onclick="clearAllFilters()">CLEAR ALL</button>
+      </div>
+
+      <!-- Gender Filter -->
+      <div class="filter-group">
+        <h4>GENDER</h4>
+        <label><input type="checkbox" name="gender" value="Men" onchange="applyFilters()"> Men</label>
+        <label><input type="checkbox" name="gender" value="Women" onchange="applyFilters()"> Women</label>
+        <label><input type="checkbox" name="gender" value="Kids" onchange="applyFilters()"> Kids</label>
+      </div>
+
+      <!-- Price Range Filter -->
+      <div class="filter-group">
+        <h4>PRICE</h4>
+        <label><input type="radio" name="price" value="under500" onchange="applyFilters()"> Under ₹500</label>
+        <label><input type="radio" name="price" value="500to1000" onchange="applyFilters()"> ₹500 - ₹1000</label>
+        <label><input type="radio" name="price" value="above1000" onchange="applyFilters()"> Above ₹1000</label>
+        <label><input type="radio" name="price" value="all" checked onchange="applyFilters()"> All Prices</label>
+      </div>
+
+      <!-- Discount Filter -->
+      <div class="filter-group">
+        <h4>DISCOUNT</h4>
+        <label><input type="radio" name="discount" value="30" onchange="applyFilters()"> 30% and above</label>
+        <label><input type="radio" name="discount" value="50" onchange="applyFilters()"> 50% and above</label>
+        <label><input type="radio" name="discount" value="60" onchange="applyFilters()"> 60% and above</label>
+        <label><input type="radio" name="discount" value="all" checked onchange="applyFilters()"> All Discounts</label>
+      </div>
+    </aside>
+
+    <!-- Product Grid Section -->
+    <section class="products-section">
+      <!-- Sorting & Counter Bar -->
+      <div class="products-header">
+        <div>
+          <span class="total-count" id="productCount">Showing 8 Products</span>
+        </div>
+        <div class="sort-wrapper">
+          <label for="sortSelect">Sort by:</label>
+          <select id="sortSelect" onchange="handleSort()">
+            <option value="recommended">Recommended</option>
+            <option value="priceLow">Price: Low to High</option>
+            <option value="priceHigh">Price: High to Low</option>
+            <option value="rating">Customer Rating</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Products populated via JavaScript -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SHOPPING BAG MODAL -->
+  <div class="modal-overlay" id="cartModal">
+    <div class="modal-content cart-modal">
+      <div class="modal-header">
+        <h2>Shopping Bag (<span id="cartItemCount">0</span>)</h2>
+        <button class="close-btn" onclick="closeCartModal()">✕</button>
+      </div>
+
+      <div class="cart-body">
+        <div class="cart-items-list" id="cartItemsList">
+          <!-- Items inserted via JS -->
+        </div>
+
+        <div class="cart-summary">
+          <h3>COUPONS & OFFERS</h3>
+          <div class="coupon-box">
+            <input type="text" id="couponInput" placeholder="Enter MYNTRA200">
+            <button onclick="applyCoupon()">APPLY</button>
+          </div>
+          <p id="couponMsg" class="coupon-msg"></p>
+
+          <hr>
+
+          <h3>PRICE DETAILS</h3>
+          <div class="price-row">
+            <span>Total MRP</span>
+            <span id="summaryMrp">₹0</span>
+          </div>
+          <div class="price-row green">
+            <span>Discount on MRP</span>
+            <span id="summaryDiscount">- ₹0</span>
+          </div>
+          <div class="price-row green" id="couponDiscountRow" style="display:none;">
+            <span>Coupon Discount</span>
+            <span id="summaryCoupon">- ₹200</span>
+          </div>
+          <div class="price-row">
+            <span>Convenience Fee</span>
+            <span class="green">FREE</span>
+          </div>
+          <hr>
+          <div class="price-row total-row">
+            <span>Total Amount</span>
+            <span id="summaryTotal">₹0</span>
+          </div>
+
+          <button class="place-order-btn" onclick="placeOrder()">PLACE ORDER</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WISHLIST MODAL -->
+  <div class="modal-overlay" id="wishlistModal">
+    <div class="modal-content wishlist-modal">
+      <div class="modal-header">
+        <h2>My Wishlist (<span id="wishlistModalCount">0</span>)</h2>
+        <button class="close-btn" onclick="closeWishlistModal()">✕</button>
+      </div>
+      <div class="wishlist-grid" id="wishlistGrid">
+        <!-- Wishlist items populated via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT DETAIL MODAL -->
+  <div class="modal-overlay" id="pdpModal">
+    <div class="modal-content pdp-modal">
+      <button class="close-btn pdp-close" onclick="closePdpModal()">✕</button>
+      <div class="pdp-container" id="pdpDetails">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ORDER SUCCESS CELEBRATION MODAL -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-content success-modal">
+      <div class="success-icon">🎉</div>
+      <h2>Order Confirmed!</h2>
+      <p>Thank you for shopping on Myntra.</p>
+      <div class="order-id-box">
+        Order ID: <strong id="successOrderId">MYN8492019</strong>
+      </div>
+      <p class="delivery-text">Estimated Delivery in 2-3 Business Days</p>
+      <button class="shop-now-btn" onclick="closeSuccessModal()">CONTINUE SHOPPING</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-guarantees">
+      <div class="guarantee-item">
+        <span class="g-icon">⭐</span>
+        <div>
+          <h4>100% ORIGINAL</h4>
+          <p>guarantee for all products</p>
+        </div>
+      </div>
+      <div class="guarantee-item">
+        <span class="g-icon">🔄</span>
+        <div>
+          <h4>14 DAYS RETURN</h4>
+          <p>easy return & exchange</p>
+        </div>
+      </div>
+      <div class="guarantee-item">
+        <span class="g-icon">🚚</span>
+        <div>
+          <h4>FAST DELIVERY</h4>
+          <p>free delivery on all orders</p>
+        </div>
+      </div>
+    </div>
+    <p class="copyright">© 2026 www.myntra.com. College Assignment Project (HTML, CSS, JavaScript).</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
